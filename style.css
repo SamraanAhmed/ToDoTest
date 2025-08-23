@@ -109,16 +109,31 @@ body {
   .edit-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex: 1;
+    width: 100%;
   }
 
   .edit-input {
     flex: 1;
-    padding: 6px 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 8px 10px;
+    border: 2px solid #2196f3;
+    border-radius: 6px;
     font-size: 14px;
+    outline: none;
+    background: white;
+    min-width: 0;
+  }
+
+  .edit-input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+  }
+
+  .edit-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
   }
 
   button.save {
@@ -126,9 +141,11 @@ body {
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 4px 8px;
+    padding: 6px 10px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
   }
 
   button.save:hover {
@@ -140,11 +157,18 @@ body {
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 4px 8px;
+    padding: 6px 10px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
   }
 
   button.cancel:hover {
     background: #616161;
+  }
+
+  /* Ensure edit mode li has proper spacing */
+  li.editing {
+    padding: 10px 12px;
   }
