@@ -66,23 +66,38 @@ function editTask(li, span) {
   input.classList.add("edit-input");
 
   const saveBtn = document.createElement("button");
-  saveBtn.textContent = "Save";
+  saveBtn.textContent = "✓";
   saveBtn.classList.add("save");
+  saveBtn.title = "Save (Enter)";
 
   const cancelBtn = document.createElement("button");
-  cancelBtn.textContent = "Cancel";
+  cancelBtn.textContent = "✕";
   cancelBtn.classList.add("cancel");
+  cancelBtn.title = "Cancel (Escape)";
+
+  const editActions = document.createElement("div");
+  editActions.classList.add("edit-actions");
+  editActions.appendChild(saveBtn);
+  editActions.appendChild(cancelBtn);
 
   const editContainer = document.createElement("div");
   editContainer.classList.add("edit-container");
   editContainer.appendChild(input);
-  editContainer.appendChild(saveBtn);
-  editContainer.appendChild(cancelBtn);
+  editContainer.appendChild(editActions);
+
+  // Add editing class and hide task buttons
+  li.classList.add("editing");
+  const taskButtons = li.querySelector(".task-buttons");
+  taskButtons.style.display = "none";
 
   // Replace span with edit container
   li.replaceChild(editContainer, span);
-  input.focus();
-  input.select();
+
+  // Focus and select input with slight delay for better UX
+  setTimeout(() => {
+    input.focus();
+    input.select();
+  }, 50);
 
   function saveEdit() {
     const newText = input.value.trim();
@@ -90,10 +105,16 @@ function editTask(li, span) {
       span.textContent = newText;
       saveTasks();
     }
-    li.replaceChild(span, editContainer);
+    exitEditMode();
   }
 
   function cancelEdit() {
+    exitEditMode();
+  }
+
+  function exitEditMode() {
+    li.classList.remove("editing");
+    taskButtons.style.display = "flex";
     li.replaceChild(span, editContainer);
   }
 
@@ -102,10 +123,22 @@ function editTask(li, span) {
 
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       saveEdit();
     } else if (e.key === "Escape") {
+      e.preventDefault();
       cancelEdit();
     }
+  });
+
+  // Auto-save if user clicks outside (blur event)
+  input.addEventListener("blur", (e) => {
+    // Small delay to allow clicking save/cancel buttons
+    setTimeout(() => {
+      if (li.classList.contains("editing")) {
+        saveEdit();
+      }
+    }, 150);
   });
 }
 
