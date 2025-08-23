@@ -61,12 +61,37 @@ body {
     margin-bottom: 8px;
     border-radius: 8px;
   }
-  
-  li.completed span {
+
+  .task-text {
+    flex: 1;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  li.completed .task-text {
     text-decoration: line-through;
     color: gray;
   }
-  
+
+  .task-buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  button.edit {
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  button.edit:hover {
+    background: #1976d2;
+  }
+
   button.delete {
     background: #e53935;
     color: white;
@@ -74,9 +99,76 @@ body {
     border-radius: 6px;
     padding: 5px 10px;
     cursor: pointer;
+    font-size: 12px;
   }
-  
+
   button.delete:hover {
     background: #c62828;
   }
-  
+
+  .edit-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    width: 100%;
+  }
+
+  .edit-input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 2px solid #2196f3;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    min-width: 0;
+  }
+
+  .edit-input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+  }
+
+  .edit-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  button.save {
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+
+  button.save:hover {
+    background: #43a047;
+  }
+
+  button.cancel {
+    background: #757575;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+
+  button.cancel:hover {
+    background: #616161;
+  }
+
+  /* Ensure edit mode li has proper spacing */
+  li.editing {
+    padding: 10px 12px;
+  }
