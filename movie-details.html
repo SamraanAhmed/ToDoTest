@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details - Netflix Clone</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/movie-details.css">
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div class="logo">NETFLIX</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" class="back-btn">← Back</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="user-profile">
+          <div class="profile-img">U</div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Loading State -->
+  <div id="loading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Loading movie details...</p>
+  </div>
+
+  <!-- Movie Details Content -->
+  <main id="movie-content" class="movie-details-container" style="display: none;">
+    <!-- Hero Section with Movie Background -->
+    <section class="movie-hero">
+      <div class="movie-backdrop">
+        <img id="backdrop-image" src="" alt="" class="backdrop-img">
+        <div class="backdrop-overlay"></div>
+      </div>
+      
+      <div class="movie-hero-content">
+        <div class="movie-poster-section">
+          <img id="poster-image" src="" alt="" class="movie-poster">
+        </div>
+        
+        <div class="movie-info-section">
+          <h1 id="movie-title" class="movie-title"></h1>
+          <div class="movie-meta">
+            <span id="release-date" class="meta-item"></span>
+            <span id="runtime" class="meta-item"></span>
+            <span id="rating" class="rating"></span>
+          </div>
+          
+          <div class="movie-genres" id="genres-list">
+            <!-- Genres will be populated dynamically -->
+          </div>
+          
+          <p id="movie-overview" class="movie-overview"></p>
+          
+          <div class="movie-actions">
+            <button class="btn btn-play" id="play-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              Play
+            </button>
+            <button class="btn btn-info" id="trailer-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/>
+              </svg>
+              Watch Trailer
+            </button>
+            <button class="btn btn-info" id="add-list-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              </svg>
+              Add to List
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Details Section -->
+    <section class="movie-details-section">
+      <div class="details-container">
+        <div class="details-grid">
+          <div class="details-main">
+            <h2>About this Movie</h2>
+            <div class="detail-row">
+              <span class="detail-label">Director:</span>
+              <span id="director" class="detail-value">Loading...</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Cast:</span>
+              <span id="cast" class="detail-value">Loading...</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Production Companies:</span>
+              <span id="production" class="detail-value">Loading...</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Budget:</span>
+              <span id="budget" class="detail-value">Loading...</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Revenue:</span>
+              <span id="revenue" class="detail-value">Loading...</span>
+            </div>
+          </div>
+          
+          <div class="details-sidebar">
+            <h3>Movie Stats</h3>
+            <div class="stat-item">
+              <span class="stat-label">Rating:</span>
+              <span id="vote-average" class="stat-value"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Votes:</span>
+              <span id="vote-count" class="stat-value"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Popularity:</span>
+              <span id="popularity" class="stat-value"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Status:</span>
+              <span id="status" class="stat-value"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Original Language:</span>
+              <span id="original-language" class="stat-value"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Error State -->
+  <div id="error-state" class="error-container" style="display: none;">
+    <h2>Movie Not Found</h2>
+    <p>Sorry, we couldn't load the movie details. Please try again later.</p>
+    <button class="btn btn-primary" onclick="window.history.back()">Go Back</button>
+  </div>
+
+  <script type="module" src="/movie-details.js"></script>
+</body>
+</html>

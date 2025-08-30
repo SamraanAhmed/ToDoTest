@@ -3,18 +3,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List App</title>
+  <title>Netflix Clone</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="app">
-    <h1>📝 To-Do List</h1>
-    <div class="todo-input">
-      <input id="taskInput" type="text" placeholder="Enter a task...">
-      <button id="addTaskBtn">Add</button>
+  <!-- Header Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div class="logo">NETFLIX</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">TV Shows</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">New & Popular</a></li>
+        <li><a href="#">My List</a></li>
+        <li><a href="#">Browse by Languages</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="search-box">
+          <input type="text" placeholder="Search" class="search-input">
+          <button class="search-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="user-profile">
+          <div class="profile-img">U</div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Stranger Things</h1>
+      <p class="hero-description">
+        When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn btn-play">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Play
+        </button>
+        <button class="btn btn-info">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+          More Info
+        </button>
+      </div>
     </div>
-    <ul id="taskList"></ul>
-  </div>
+    <div class="hero-image">
+      <div class="hero-bg"></div>
+    </div>
+  </section>
+
+  <!-- Content Rows -->
+  <main class="main-content">
+    <section class="content-row">
+      <h2 class="row-title">Trending Now</h2>
+      <div class="row-slider">
+        <button class="slider-btn slider-btn-left" id="trending-left">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <div class="slider-container" id="trending-slider">
+          <!-- Content will be dynamically loaded -->
+        </div>
+        <button class="slider-btn slider-btn-right" id="trending-right">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="content-row">
+      <h2 class="row-title">Popular on Netflix</h2>
+      <div class="row-slider">
+        <button class="slider-btn slider-btn-left" id="popular-left">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <div class="slider-container" id="popular-slider">
+          <!-- Content will be dynamically loaded -->
+        </div>
+        <button class="slider-btn slider-btn-right" id="popular-right">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="content-row">
+      <h2 class="row-title">Netflix Originals</h2>
+      <div class="row-slider">
+        <button class="slider-btn slider-btn-left" id="originals-left">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <div class="slider-container" id="originals-slider">
+          <!-- Content will be dynamically loaded -->
+        </div>
+        <button class="slider-btn slider-btn-right" id="originals-right">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="content-row">
+      <h2 class="row-title">Action & Adventure</h2>
+      <div class="row-slider">
+        <button class="slider-btn slider-btn-left" id="action-left">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <div class="slider-container" id="action-slider">
+          <!-- Content will be dynamically loaded -->
+        </div>
+        <button class="slider-btn slider-btn-right" id="action-right">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <div class="footer-column">
+          <a href="#">FAQ</a>
+          <a href="#">Help Centre</a>
+          <a href="#">Account</a>
+          <a href="#">Media Centre</a>
+        </div>
+        <div class="footer-column">
+          <a href="#">Investor Relations</a>
+          <a href="#">Jobs</a>
+          <a href="#">Ways to Watch</a>
+          <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-column">
+          <a href="#">Privacy</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Corporate Information</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+      <p class="copyright">© 2024 Netflix Clone</p>
+    </div>
+  </footer>
+
   <script type="module" src="/main.js"></script>
 </body>
 </html>

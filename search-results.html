@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results - Netflix Clone</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/search-results.css">
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="header scrolled">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="index.html" class="logo">NETFLIX</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" class="active">Search</a></li>
+        <li><a href="#">TV Shows</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">My List</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="search-box">
+          <input type="text" placeholder="Search" class="search-input" id="search-input">
+          <button class="search-btn" id="search-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="user-profile">
+          <div class="profile-img">U</div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search Results Content -->
+  <main class="search-container">
+    <!-- Search Header -->
+    <section class="search-header">
+      <h1 id="search-title">Search Results</h1>
+      <p id="search-subtitle">Enter a search term to find movies and TV shows</p>
+    </section>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading-state" style="display: none;">
+      <div class="loading-spinner"></div>
+      <p>Searching...</p>
+    </div>
+
+    <!-- No Results State -->
+    <div id="no-results" class="no-results-state" style="display: none;">
+      <div class="no-results-icon">🔍</div>
+      <h2>No results found</h2>
+      <p>Try searching for something else</p>
+    </div>
+
+    <!-- Search Results -->
+    <section id="search-results" class="search-results-section" style="display: none;">
+      <div class="results-header">
+        <h2 id="results-count">Found 0 results</h2>
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="movie">Movies</button>
+          <button class="filter-tab" data-filter="tv">TV Shows</button>
+          <button class="filter-tab" data-filter="person">People</button>
+        </div>
+      </div>
+      
+      <div class="results-grid" id="results-grid">
+        <!-- Results will be populated dynamically -->
+      </div>
+      
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button id="load-more-btn" class="btn btn-secondary" style="display: none;">
+          Load More Results
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/search-results.js"></script>
+</body>
+</html>
